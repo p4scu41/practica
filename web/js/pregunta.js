@@ -39,9 +39,9 @@ $(document).ready(function(){
         
         $(opcionesSeleccionadas).each(function(index, element){
             filasOpciones += '<tr><td>'+
-                '<input type="hidden" name="id_opcion_respuesta[]" value="'+$(this).val()+'" />'+$(this).data('texto')+'</td>'+
-                '<td align="center"><input type="radio" name="opcion_adecuada" value="'+$(this).val()+'" /></td>'+
-                '<td align="center"><input type="text" name="valor_ideal[]" "class"="form-control" /></td></tr>';
+                '<input type="hidden" name="OpcionPregunta[fk_opcion_respuesta][]" value="'+$(this).val()+'" />'+$(this).data('texto')+'</td>'+
+                '<td align="center"><input type="radio" name="OpcionPregunta[es_opcion_ideal][]" value="'+$(this).val()+'" /></td>'+
+                '<td align="center"><input type="text" name="OpcionPregunta[valor_ideal][]" "class"="form-control" /></td></tr>';
         });
         
         $("#tbl_asignacion_opciones tbody").html("");

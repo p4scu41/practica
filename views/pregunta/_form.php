@@ -96,7 +96,7 @@ Modal::begin([
     </table>
 </div>
 <a href="#dialogNuevaOpcion" class="btn btn-default" data-toggle="modal">
-    <span class="glyphicon glyphicon-check"></span> Agregar opción
+    <span class="glyphicon glyphicon-check"></span> Registrar nueva opción
 </a>
 <?php
 Modal::end();
