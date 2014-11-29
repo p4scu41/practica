@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\grid\DataColumn;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\PreguntaSearch */
@@ -24,16 +25,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            //'id_pregunta',
             'descripcion',
-            'fk_tipo_pregunta',
-            'fk_categoria',
-            'comentario',
-            // 'ponderacion',
-            // 'fecha_creado',
-            // 'fecha_modificado',
-
+            [
+                'attribute' => 'fk_tipo_pregunta',
+                'format' => 'html',
+                'value' => function ($model, $key, $index, $column){
+                    return $model->fkTipoPregunta->descripcion;
+                },
+                'filter' => $list_tipo_pregunta,
+            ],
+            [
+                'attribute' => 'fk_categoria',
+                'format' => 'html',
+                'value' => function ($model, $key, $index, $column){
+                    return $model->fkCategoria->descripcion;
+                },
+                'filter' => $list_categoria,
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

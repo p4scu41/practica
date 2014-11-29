@@ -25,3 +25,7 @@ composer.phar
 phpunit.phar
 # local phpunit config
 /phpunit.xml
+
+# DW Dreamweaver added files
+_notes
+dwsync.xml

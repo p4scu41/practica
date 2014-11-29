@@ -41,10 +41,25 @@ class PreguntaController extends Controller
     {
         $searchModel = new PreguntaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        
+        $list_tipo_pregunta = ArrayHelper::map(
+                                TipoPregunta::find()
+                                    ->select(['id_tipo_pregunta', 'descripcion'])
+                                    ->all(),
+                                'id_tipo_pregunta', 'descripcion'
+                              );
+        $list_categoria = ArrayHelper::map(
+                                Categoria::find()
+                                    ->select(['id_categoria', 'descripcion'])
+                                    ->all(),
+                                'id_categoria', 'descripcion'
+                              );
+        
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'list_tipo_pregunta' => $list_tipo_pregunta,
+            'list_categoria' => $list_categoria,
         ]);
     }
 

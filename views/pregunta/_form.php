@@ -26,15 +26,15 @@ $this->registerJsFile(Url::to('@web/js/pregunta.js'), ['depends' => [yii\web\Jqu
     <?= $form->field($model, 'comentario')->textInput(['maxlength' => 45]) ?>
 
     <?= $form->field($model, 'ponderacion')->input('number', ['min'=>'0', 'max'=>'100']) ?>
-    
+
     <?= Html::label('Nivel de atención:') ?>
-    
+
     <?= Html::checkboxList('Pregunta[nivel_atencion]', $nivel_atencion, $list_nivel_atencion) ?>
     <br />
     <?= Html::label('Opciones de respuesta:') ?>
-    
+
     <div class="table-responsive">
-        <table class="table table-bordered table-striped table-hover" 
+        <table class="table table-bordered table-striped table-hover"
                id="tbl_asignacion_opciones" style="width: auto !important">
             <thead>
                 <tr align="center">
@@ -47,7 +47,7 @@ $this->registerJsFile(Url::to('@web/js/pregunta.js'), ['depends' => [yii\web\Jqu
             </tbody>
         </table>
     </div>
-    
+
     <a href="#dialogAgregarOpciones" class="btn btn-default" data-toggle="modal">
         <span class="glyphicon glyphicon-list"></span> Agregar opción
     </a>
@@ -57,10 +57,10 @@ $this->registerJsFile(Url::to('@web/js/pregunta.js'), ['depends' => [yii\web\Jqu
     </div>
 
     <?php ActiveForm::end(); ?>
-    
+
 </div>
 
-<?php 
+<?php
 Modal::begin([
     'id' => 'dialogAgregarOpciones',
     //'size' => Modal::SIZE_LARGE,
@@ -71,7 +71,7 @@ Modal::begin([
 ]);
 ?>
 <div class="table-responsive">
-    <table id="tbl_opciones_respuesta" class="table table-bordered table-striped table-hover" 
+    <table id="tbl_opciones_respuesta" class="table table-bordered table-striped table-hover"
            style="width: auto !important"  align="center">
         <thead>
             <tr>
@@ -84,7 +84,7 @@ Modal::begin([
             if (!empty($list_opcion_respuesta)) {
                 foreach ($list_opcion_respuesta as $id_opcion_respuesta => $descripcion) {
                     echo '<tr>
-                        <td align="center">'.Html::checkbox('id_opcion_respuesta', false, 
+                        <td align="center">'.Html::checkbox('id_opcion_respuesta', false,
                                                             ['value'=>$id_opcion_respuesta, 'class' => 'opcionRespuesta',
                                                                 'data-texto' => $descripcion]).'</td>
                         <td>'.Html::encode($descripcion).'</td>
@@ -112,8 +112,10 @@ Modal::begin([
     echo '<div class="form-group" id="divOpcionRespuesta">';
         echo Html::label('Opción: ', 'opcion_respuesta', array('class' => 'control-label'));
         echo Html::textInput('opcion_respuesta', '', array('id' => 'opcion_respuesta', 'class' => 'form-control'));
+        echo Html::label('Comentario: ', 'comentario', array('class' => 'control-label'));
+        echo Html::textInput('comentario', '', array('id' => 'comentario', 'class' => 'form-control'));
         echo '<div class="help-block"></div>';
     echo '</div>';
-    
+
 Modal::end();
 ?>

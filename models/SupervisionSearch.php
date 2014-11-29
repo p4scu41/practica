@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Pregunta;
+use app\models\Supervision;
 
 /**
- * PreguntaSearch represents the model behind the search form about `app\models\Pregunta`.
+ * SupervisionSearch represents the model behind the search form about `app\models\Supervision`.
  */
-class PreguntaSearch extends Pregunta
+class SupervisionSearch extends Supervision
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PreguntaSearch extends Pregunta
     public function rules()
     {
         return [
-            [['fk_tipo_pregunta', 'fk_categoria'], 'integer'],
-            [['descripcion'], 'safe'],
+            [['id_supervision', 'fk_usuario'], 'integer'],
+            [['fk_clues', 'fecha_supervision'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PreguntaSearch extends Pregunta
      */
     public function search($params)
     {
-        $query = Pregunta::find();
+        $query = Supervision::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -52,11 +52,11 @@ class PreguntaSearch extends Pregunta
         }
 
         $query->andFilterWhere([
-            'fk_tipo_pregunta' => $this->fk_tipo_pregunta,
-            'fk_categoria' => $this->fk_categoria,
+            'fk_usuario' => $this->fk_usuario,
+            'fecha_supervision' => $this->fecha_supervision,
         ]);
 
-        $query->andFilterWhere(['like', 'descripcion', $this->descripcion]);
+        $query->andFilterWhere(['like', 'fk_clues', $this->fk_clues]);
 
         return $dataProvider;
     }

@@ -12,8 +12,8 @@ $(document).ready(function(){
         $.ajax({
             type: "POST",
             url: urlOpcionRespuestaCreate,
-            data: {"_csrf": $("[name=_csrf]").val(), 
-                   "OpcionRespuesta": {"descripcion": $("#opcion_respuesta").val()}
+            data: {"_csrf": $("[name=_csrf]").val(),
+                   "OpcionRespuesta": {"descripcion": $("#opcion_respuesta").val(), "comentario": $("#comentario").val()}
                 },
             success: function(data){
                 tr = $('<tr><td align="center">'+
@@ -22,6 +22,7 @@ $(document).ready(function(){
                         '<td>'+data.message.descripcion+'</td></tr>');
                 $(tr).hide().appendTo("#tbl_opciones_respuesta tbody").fadeIn();
                 $("#opcion_respuesta").val("");
+                $("#comentario").val("");
                 $("#dialogNuevaOpcion").modal("hide");
             },
             dataType: "json"
@@ -30,21 +31,21 @@ $(document).ready(function(){
             $("#divOpcionRespuesta .help-block").text('Error al procesar el dato');
         });
     });
-    
+
     $("#btnAsignarOpciones").click(function(){
         $("#dialogAgregarOpciones").modal("hide");
-        
+
         opcionesSeleccionadas = $("#tbl_opciones_respuesta tbody .opcionRespuesta:checked");
         filasOpciones = "";
-        
+
         $(opcionesSeleccionadas).each(function(index, element){
             filasOpciones += '<tr><td>'+
                 '<input type="hidden" name="OpcionPregunta[fk_opcion_respuesta][]" value="'+$(this).val()+'" />'+$(this).data('texto')+'</td>'+
                 '<td align="center"><input type="radio" name="OpcionPregunta[es_opcion_ideal][]" value="'+$(this).val()+'" /></td>'+
                 '<td align="center"><input type="text" name="OpcionPregunta[valor_ideal][]" "class"="form-control" /></td></tr>';
         });
-        
+
         $("#tbl_asignacion_opciones tbody").html("");
-        $(filasOpciones).hide().appendTo("#tbl_asignacion_opciones tbody").fadeIn(800); 
+        $(filasOpciones).hide().appendTo("#tbl_asignacion_opciones tbody").fadeIn(800);
     });
 });

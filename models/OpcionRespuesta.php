@@ -9,6 +9,7 @@ use Yii;
  *
  * @property string $id_opcion_respuesta
  * @property string $descripcion
+ * @property string $comentario
  * @property string $fecha_creado
  * @property string $fecha_modificado
  *
@@ -33,7 +34,7 @@ class OpcionRespuesta extends \yii\db\ActiveRecord
     {
         return [
             [['fecha_creado', 'fecha_modificado'], 'safe'],
-            [['descripcion'], 'string', 'max' => 45]
+            [['descripcion', 'comentario'], 'string', 'max' => 45]
         ];
     }
 
@@ -45,6 +46,7 @@ class OpcionRespuesta extends \yii\db\ActiveRecord
         return [
             'id_opcion_respuesta' => 'Id Opcion Respuesta',
             'descripcion' => 'Descripcion',
+            'comentario' => 'Comentario',
             'fecha_creado' => 'Fecha Creado',
             'fecha_modificado' => 'Fecha Modificado',
         ];
