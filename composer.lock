@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ea3a29f8dea0d84df71f8c930b909f34",
+    "hash": "42c20668114ab3a56ef70f52dce552d3",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -390,16 +390,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "cf1ce50f33344fa2cf1b384cd86c1424493d3323"
+                "reference": "a0bb60febe1e886d7c45ab3a70e17a3b3149f1a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/cf1ce50f33344fa2cf1b384cd86c1424493d3323",
-                "reference": "cf1ce50f33344fa2cf1b384cd86c1424493d3323",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/a0bb60febe1e886d7c45ab3a70e17a3b3149f1a3",
+                "reference": "a0bb60febe1e886d7c45ab3a70e17a3b3149f1a3",
                 "shasum": ""
             },
             "require": {
@@ -409,6 +409,7 @@
                 "bower-asset/yii2-pjax": ">=2.0.1",
                 "cebe/markdown": "~1.0.0",
                 "ext-mbstring": "*",
+                "ext-mcrypt": "*",
                 "ezyang/htmlpurifier": "4.6.*",
                 "lib-pcre": "*",
                 "php": ">=5.4.0",
@@ -474,7 +475,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2014-10-12 17:09:06"
+            "time": "2015-01-11 03:57:55"
         },
         {
             "name": "yiisoft/yii2-bootstrap",

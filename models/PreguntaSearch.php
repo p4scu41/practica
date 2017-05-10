@@ -18,8 +18,8 @@ class PreguntaSearch extends Pregunta
     public function rules()
     {
         return [
-            [['fk_tipo_pregunta', 'fk_categoria'], 'integer'],
-            [['descripcion'], 'safe'],
+            [['id_pregunta', 'fk_tipo_pregunta', 'fk_categoria', 'ponderacion'], 'integer'],
+            [['descripcion', 'comentario', 'fecha_creado', 'fecha_modificado'], 'safe'],
         ];
     }
 
@@ -52,11 +52,16 @@ class PreguntaSearch extends Pregunta
         }
 
         $query->andFilterWhere([
+            'id_pregunta' => $this->id_pregunta,
             'fk_tipo_pregunta' => $this->fk_tipo_pregunta,
             'fk_categoria' => $this->fk_categoria,
+            'ponderacion' => $this->ponderacion,
+            'fecha_creado' => $this->fecha_creado,
+            'fecha_modificado' => $this->fecha_modificado,
         ]);
 
-        $query->andFilterWhere(['like', 'descripcion', $this->descripcion]);
+        $query->andFilterWhere(['like', 'descripcion', $this->descripcion])
+            ->andFilterWhere(['like', 'comentario', $this->comentario]);
 
         return $dataProvider;
     }

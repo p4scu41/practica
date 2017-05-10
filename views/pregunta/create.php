@@ -16,11 +16,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
-        'list_tipo_pregunta' => $list_tipo_pregunta,
-        'list_categoria' => $list_categoria,
-        'list_nivel_atencion' => $list_nivel_atencion,
-        'nivel_atencion' => $nivel_atencion,
-        'list_opcion_respuesta' => $list_opcion_respuesta,
     ]) ?>
 
 </div>

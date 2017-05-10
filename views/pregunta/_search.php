@@ -21,6 +21,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'fk_categoria') ?>
 
+    <?= $form->field($model, 'descripcion') ?>
+
+    <?= $form->field($model, 'comentario') ?>
+
+    <?php // echo $form->field($model, 'ponderacion') ?>
+
+    <?php // echo $form->field($model, 'fecha_creado') ?>
+
+    <?php // echo $form->field($model, 'fecha_modificado') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
